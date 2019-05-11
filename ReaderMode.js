@@ -1853,7 +1853,7 @@ if (typeof module === "object") {
 
 //	button for activate ReaderMode
 var readerbutton = document.createElement("div");
-readerbutton.setAttribute("style","position:absolute;top:1em;left:1em;padding:0.5em;background-color:#000;opacity:0.5");
+readerbutton.setAttribute("style","position:absolute;top:1em;left:1em;padding:0.5em;background-color:#000;opacity:0.5;z-index:99999;");
 readerbutton.setAttribute("onclick","ReaderMode()");
 document.body.appendChild(readerbutton);
 
