@@ -1855,7 +1855,7 @@ if (typeof module === "object") {
 var readerbutton = document.createElement("div");
 readerbutton.setAttribute("style","position:absolute;top:1em;left:1em;padding:0.5em;background-color:#000;opacity:0.5");
 readerbutton.setAttribute("onclick","ReaderMode()");
-document.getElementById("main").appendChild(readerbutton);
+document.body.appendChild(readerbutton);
 
 
 function ReaderMode(){
