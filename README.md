@@ -4,7 +4,7 @@
 Add code from [ReaderMode.js](https://github.com/WhiteApfel/reader_for_via/blob/master/ReaderMode.js) to `Settings > Scripts`
 
 #### Mirror for easy copying
-[Mirror](https://reader.pfel.ru/download.js)
+[Mirror](https://raw.githubusercontent.com/WhiteApfel/reader_for_via/master/ReaderMode.js)
 
 ***
 
@@ -12,4 +12,4 @@ Add code from [ReaderMode.js](https://github.com/WhiteApfel/reader_for_via/blob/
 Добавьте код из [ReaderMode.js](https://github.com/WhiteApfel/reader_for_via/blob/master/ReaderMode.js) в `Настройки > Скрипты`
 
 #### Зеркало для удобного копирования
-[Зеркало](https://reader.pfel.ru/download.js)
+[Зеркало](https://raw.githubusercontent.com/WhiteApfel/reader_for_via/master/ReaderMode.js)
