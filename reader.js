@@ -1850,7 +1850,10 @@ if (typeof module === "object") {
   module.exports = Readability;
 }
 
+
+
  	var article = new Readability(document).parse();
+	
 	
 	document.body.innerHTML = " ";
 	
@@ -1867,7 +1870,13 @@ if (typeof module === "object") {
 	control.setAttribute("id", "mobile");
 	document.getElementById("main").appendChild(control);
 // 	document.getElementById("mobile").innerHTML = '<div id="nomobile"><span id="pluswidth" onclick=\'var content = document.getElementById("main");var width = content.offsetWidth;content.style.width=(width*1.1)+"px";content.style.maxWidth=(width*1.1)+"px";\'>+</span> <span id="pluswidth" onclick=\'var content = document.getElementById("main");var width = content.offsetWidth;content.style.width=(width*0.90909)+"px";\'>-</span>';
-	document.getElementById("mobile").innerHTML = '<span onclick=\'var main = document.getElementById("main");main.style.fontSize = "23px";\'>+</span>';
+	document.getElementById("mobile").innerHTML = '<span onclick=\'var main = document.getElementById("main");main.style.fontSize = "23px";\'>FontSize+</span> |';
+	
+	document.getElementById("main").appendChild(document.createElement("script")).innerHTML = 'function fixcontents(){var countlink = 0;while(document.getElementsByTagName("link")[countlink]!=null){document.head.removeChild(document.getElementsByTagName("link")[countlink]);countlink = countlink + 1;}var countlink = 0;while(document.getElementsByTagName("link")[countlink]!=null){document.head.removeChild(document.getElementsByTagName("link")[countlink]);countlink = countlink + 1;}document.head.innerHTML += "<link rel=\'stylesheet\' href=\'https://reader.pfel.ru/reader.css\' type=\'text/css\'/><meta name=\'viewport\' content=\'width=device-width\'><meta charset=\'utf-8\'><meta name=\'http-equiv\' content=\'Content-type: text/html; charset=utf-8\'>";}';
+	
+	document.getElementById("mobile").innerHTML += '<span onclick="fixcontents()"> FixStyle</span>';
+	
+	
 	
 	document.getElementById("main").innerHTML += "<hr>";
 	
