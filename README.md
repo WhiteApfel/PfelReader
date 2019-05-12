@@ -4,7 +4,7 @@
 Add code `(function(){var readerbutton = document.createElement('div');
 readerbutton.setAttribute('id', 'ReaderModeButton8921');
 readerbutton.setAttribute('style','position:fixed;top:1em;left:1em;padding:0.5em;background-color:#222;opacity:0.5;z-index:999999');
-readerbutton.setAttribute('onclick','var sc = document.createElement('script');sc.src=\'https://reader.pfel.ru/reader.js\';document.body.appendChild(sc);');
+readerbutton.setAttribute('onclick','var sc = document.createElement\'script\');sc.src=\'https://reader.pfel.ru/reader.js\';document.body.appendChild(sc);');
 document.body.appendChild(readerbutton);
 })()` to `Settings > Scripts`
 
