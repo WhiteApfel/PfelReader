@@ -25,4 +25,4 @@ Enter the `javascript:(function(){var sc = document.createElement('script');sc.s
 ***
 
 ## Beta! Attention! Analytics works! Many bugs!
-`(function(){var sc = document.createElement('script');sc.src='https://reader.pfel.ru/beta.button.reader.js';document.body.appendChild(sc);})()`
+`(function(){var sc = document.createElement('script');sc.src='https://reader.pfel.cc/beta.button.reader.js';document.body.appendChild(sc);})()`
