@@ -13,4 +13,5 @@ Enter the `javascript:(function(){var sc = document.createElement('script');sc.s
 
 ## Как использовать (другие браузеры)?
 Введите `javascript:(function(){var sc = document.createElement('script');sc.src='https://reader.pfel.ru/button.reader.js';document.body.appendChild(sc);})()` в адресную строку или консоль браузера
-*Огромное спасибо команде [Moz://a](https://github.com/mozilla/readability) за фукнцию Readability, которая и определяет "полезный" контент*
+
+**Огромное спасибо команде [Moz://a](https://github.com/mozilla/readability) за фукнцию Readability, которая и определяет "полезный" контент**
