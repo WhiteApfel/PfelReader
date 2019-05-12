@@ -5,6 +5,10 @@ Add code `(function(){var sc = document.createElement('script');sc.src='https://
 
 ## How to use (other browsers)?
 Enter the `javascript:(function(){var sc = document.createElement('script');sc.src='https://reader.pfel.ru/button.reader.js';document.body.appendChild(sc);})()` in the address bar or browser-console
+
+***
+##Many thanks to the [Moz://a](https://github.com/mozilla/readability) team for the Readability function, that defines the “useful” content
+
 ***
 
 ## Как установить (Via)?
