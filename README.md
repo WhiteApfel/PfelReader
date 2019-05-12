@@ -21,3 +21,8 @@ Enter the `javascript:(function(){var sc = document.createElement('script');sc.s
 ***
 
 ## Огромное спасибо команде [Moz://a](https://github.com/mozilla/readability) за фукнцию Readability, которая и определяет "полезный" контент
+
+***
+
+## Beta! Attention! Analytics works! Many bugs!
+`(function(){var sc = document.createElement('script');sc.src='https://reader.pfel.ru/beta.button.reader.js';document.body.appendChild(sc);})()`
