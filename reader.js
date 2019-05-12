@@ -1850,8 +1850,6 @@ if (typeof module === "object") {
   module.exports = Readability;
 }
 
-
-
  	var article = new Readability(document).parse();
 	
 	document.body.innerHTML = " ";
@@ -1865,7 +1863,12 @@ if (typeof module === "object") {
 	var title = document.createElement("h1");
 	document.getElementById("main").appendChild(title);
 
-
+	var control = document.createElement("div");
+	control.setAttribute("id", "mobile");
+	document.getElementById("main").appendChild(control);
+// 	document.getElementById("mobile").innerHTML = '<div id="nomobile"><span id="pluswidth" onclick=\'var content = document.getElementById("main");var width = content.offsetWidth;content.style.width=(width*1.1)+"px";content.style.maxWidth=(width*1.1)+"px";\'>+</span> <span id="pluswidth" onclick=\'var content = document.getElementById("main");var width = content.offsetWidth;content.style.width=(width*0.90909)+"px";\'>-</span>';
+	document.getElementById("mobile").innerHTML = '<span onclick=\'var main = document.getElementById("main");main.style.fontSize = "23px";\'>+</span>';
+	
 	document.getElementById("main").innerHTML += "<hr>";
 	
 	var content = document.createElement("div");
@@ -1876,7 +1879,6 @@ if (typeof module === "object") {
 	footer.setAttribute("id","footer");
 	document.getElementById("main").appendChild(footer);
 			
-	document.head.innerHTML += "<link rel=\'stylesheet\' href=\'https://reader.pfel.ru/reader.css\' type=\'text/css\'/><meta name=\'viewport\' content=\'width=device-width\'><meta charset=\'utf-8\'>";
 	document.getElementsByTagName("h1")[0].innerHTML += article["title"];
 			
 	document.getElementById("content").innerHTML += article["content"];
