@@ -1,5 +1,4 @@
-
-function Readability(doc, options) {
+(function(){function Readability(doc, options) {
 /*
  * Copyright (c) 2010 Arc90 Inc
  *
@@ -1851,45 +1850,23 @@ if (typeof module === "object") {
   module.exports = Readability;
 }
 
-//	button for activate ReaderMode
-var readerbutton = document.createElement("div");
-readerbutton.setAttribute("style","position:absolute;top:1em;left:1em;padding:0.5em;background-color:#000;opacity:0.5;z-index:99999;");
-readerbutton.setAttribute("onclick","ReaderMode()");
-document.body.appendChild(readerbutton);
-
-
-function ReaderMode(){
- 	var article = new Readability(document).parse();
-	
-	document.body.innerHTML = " ";
-	
-	document.head.innerHTML += "<link rel=\'stylesheet\' href=\'https://reader.pfel.ru/reader.css\' type=\'text/css\'/><meta name=\'viewport\' content=\'width=device-width\'><meta charset=\'utf-8\'><meta name=\'http-equiv\' content=\'Content-type: text/html; charset=utf-8\'>";
-	
-	var mainDiv = document.createElement("div"); 
-	mainDiv.setAttribute("id","main");
-	document.body.appendChild(mainDiv);
-	
-	var title = document.createElement("h1");
-	document.getElementById("main").appendChild(title);
-			
-// 	var by = document.createElement("h4");
-// 	by.setAttribute("class","byat");
-// 	document.getElementById("main").appendChild(by);
-
-	document.getElementById("main").innerHTML += "<hr>";
-	
-	var content = document.createElement("div");
-	content.setAttribute("id","content");
-	document.getElementById("main").appendChild(content);
-	
-	var footer = document.createElement("div");
-	footer.setAttribute("id","footer");
-	document.getElementById("main").appendChild(footer);
-			
-	document.head.innerHTML += "<link rel=\'stylesheet\' href=\'https://reader.pfel.ru/reader.css\' type=\'text/css\'/><meta name=\'viewport\' content=\'width=device-width\'><meta charset=\'utf-8\'>";
-	document.getElementsByTagName("h1")[0].innerHTML += article["title"];
-// 	document.getElementsByClassName("byat")[0].innerHTML += article["byline"];
-			
-	document.getElementById("content").innerHTML += article["content"];
-	document.getElementById("footer").innerHTML += "<hr><br>Powered by Mozilla<br>&copy; WhiteApfel 2019";
-}
+var article = new Readability(document).parse();
+document.body.innerHTML = " ";
+document.head.innerHTML += "<link rel=\'stylesheet\' href=\'https://reader.pfel.ru/reader.css\' type=\'text/css\'/><meta name=\'viewport\' content=\'width=device-width\'><meta charset=\'utf-8\'><meta name=\'http-equiv\' content=\'Content-type: text/html; charset=utf-8\'>";
+var mainDiv = document.createElement("div"); 
+mainDiv.setAttribute("id","main");
+document.body.appendChild(mainDiv);
+var title = document.createElement("h1");
+document.getElementById("main").appendChild(title);
+document.getElementById("main").innerHTML += "<hr>";
+var content = document.createElement("div");
+content.setAttribute("id","content");
+document.getElementById("main").appendChild(content);
+var footer = document.createElement("div");
+footer.setAttribute("id","footer");
+document.getElementById("main").appendChild(footer);
+document.head.innerHTML += "<link rel=\'stylesheet\' href=\'https://reader.pfel.ru/reader.css\' type=\'text/css\'/><meta name=\'viewport\' content=\'width=device-width\'><meta charset=\'utf-8\'>";
+document.getElementsByTagName("h1")[0].innerHTML += article["title"];
+document.getElementsByClassName("byat")[0].innerHTML += article["byline"];
+document.getElementById("content").innerHTML += article["content"];
+document.getElementById("footer").innerHTML += "<hr>ReaderMode<br>Powered by Mozilla<br>&copy; WhiteApfel 2019";})()
