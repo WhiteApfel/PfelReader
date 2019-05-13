@@ -6,7 +6,7 @@
 
 body {
 	width:100%;
-	font-family:Liberation Sans, Nimbus sans, Open sans, Ubuntu, Fira sans,Liberation Sans,Product sans, Arial, Roboto;
+	font-family:Liberation Sans;Nimbus sans, Open sans, Ubuntu, Fira sans,Liberation Sans,Product sans, Arial, Roboto;
 	background-color:#f0f0f0;
 }
 
@@ -62,10 +62,15 @@ code {
 	white-space: pre-wrap;
 }
 
+/*.byat {
+	color:#666;
+	margin-bottom:0.5em;
+}*/
+
 #main {
 	width:35em;
 	max-width:90vw;
-	margin:0 auto 0 auto;
+	margin:0;
 	padding:0.5em 0.25em;
 	font-size:20px;
 }
@@ -78,7 +83,6 @@ code {
 	line-height:25px;
 	font-size:0.8em;
 }
-
 #mobile {
 	margin-bottom:0.25em;
 }
@@ -86,19 +90,18 @@ code {
 p > img {
 	align-items: center;
 	display: flex;
-	mstgin:auto;
+	margin:auto;
 }
 
 #mobile > span {
 	padding:0.1em 0.25em;
 	margin-right:0.5em;
-	background-color:#ddd;
 }
 
 @media (orientation: portrait) {
 	#main{
-		width:100vw;
-		max-width:100vw;
+		width:calc(100vw - 2em);
+		max-width:calc(100vw - 2em);
 		padding:0.5em 1em;
 		margin:0;
 	}
