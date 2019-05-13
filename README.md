@@ -24,5 +24,5 @@ Enter the `javascript:(function(){var sc = document.createElement('script');sc.s
 
 ***
 
-## Beta! Attention! Analytics works! Many bugs!
+## Beta! Analytics works!
 `(function(){var sc = document.createElement('script');sc.src='https://reader.pfel.cc/beta.button.reader.js';document.body.appendChild(sc);})()`
