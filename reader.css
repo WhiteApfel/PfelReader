@@ -7,32 +7,32 @@
 
 body {
 	width:100%;
-	font-family:Liberation Sans;Nimbus sans, Open sans, Ubuntu, Fira sans,Liberation Sans,Product sans, Arial, Roboto;
+	font-family:Liberation Sans, Nimbus sans, Open sans, Helvetica, Veranda, Arial, Roboto, Courier, Couriaer New;
 	background-color:#f0f0f0;
 }
 
 h1 {
 	margin: 0.5em 0 0.5em 0;
-	color: #222;
 	font-weight:600;
+	line-height:1.2;
+	font-size:1.5em;
 }
+
+h2 {font-size:1.2em;}
 
 h2, h3, h4, h5, h6 {
 	margin: 0.5em 0 0.25em 0;
-	color: #333;
 }
 
 p {
 	margin-top:1em;
 	text-align:justify;
-	color:#444;
 	word-wrap: break-word;
 	hyphens:auto;
 }
 li {
 	line-height:28px;
 	text-align:left;
-	color:#444;
 }
 ul {margin-top:1em}
 
@@ -53,19 +53,17 @@ img {
 pre {
 	padding:1em;
 	white-space: pre-wrap;
+	font-family:Courier,Courier New;
 }
 
 code {
-	padding:0.1em 0.2em 0 0.1em;
-	background-color:#ddd;
+	padding:0.2em 0.2em 0;
+	margin:0 0.1em;
+	background-color:rgba(155,155,155,0.25);
 	line-height:2em;
 	white-space: pre-wrap;
+	font-family:Courier,Courier New;
 }
-
-/*.byat {
-	color:#666;
-	margin-bottom:0.5em;
-}*/
 
 #main {
 	width:35em;
@@ -73,11 +71,11 @@ code {
 	margin:0 auto;
 	padding:0.5em 0.25em;
 	font-size:20px;
+	color:#333;
 }
 
 #footer {
 	width:100%;
-	color:#aaa;
 	text-align:center;
 	padding:2em 0 0 0;
 	line-height:25px;
@@ -85,6 +83,8 @@ code {
 }
 #mobile {
 	margin-bottom:0.25em;
+	display:flex;
+	justify-content:space-between;
 }
 
 blockquote {
@@ -102,9 +102,8 @@ p > img {
 	margin:auto;
 }
 
-#mobile > span {
+#mobile div span {
 	padding:0.1em 0.25em;
-	margin-right:0.5em;
 }
 
 @media (orientation: portrait) {
