@@ -87,6 +87,8 @@
   }
 }
 
+document.head.innerHTML += "<script async src='https://www.googletagmanager.com/gtag/js?id=UA-120123446-2'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date()); gtag('config', 'UA-120123446-2');</script>";
+
 Readability.prototype = {
   FLAG_STRIP_UNLIKELYS: 0x1,
   FLAG_WEIGHT_CLASSES: 0x2,
@@ -114,11 +116,11 @@ Readability.prototype = {
   REGEXPS: {
     // NOTE: These two regular expressions are duplicated in
     // Readability-readerable.js. Please keep both copies in sync.
-    unlikelyCandidates: /-ad-|ai2html|banner|breadcrumbs|combx|comment|community|cover-wrap|disqus|extra|foot|gdpr|header|legends|menu|related|remark|replies|rss|shoutbox|sidebar|skyscraper|social|sponsor|supplemental|ad-break|agegate|pagination|pager|popup|yom-remote/i,
+    unlikelyCandidates: /-ad-|ai2html|banner|breadcrumbs|combx|comment|community|cover-wrap|disqus|extra|foot|gdpr|header|legends|menu|related|remark|replies|rss|shoutbox|sidebar|skyscraper|social|sponsor|supplemental|ad-break|agegate|pagination|pager|popup|link|style|yom-remote/i,
     okMaybeItsACandidate: /and|article|body|column|main|shadow/i,
 
     positive: /article|body|content|entry|hentry|h-entry|main|page|pagination|post|text|blog|story/i,
-    negative: /hidden|^hid$| hid$| hid |^hid |banner|combx|comment|com-|contact|foot|footer|footnote|gdpr|masthead|media|meta|outbrain|promo|related|scroll|share|shoutbox|sidebar|skyscraper|sponsor|shopping|tags|tool|widget/i,
+    negative: /hidden|^hid$| hid$| hid |^hid |banner|combx|comment|com-|contact|foot|footer|link|style|footnote|gdpr|masthead|media|meta|outbrain|promo|related|scroll|share|shoutbox|sidebar|skyscraper|sponsor|shopping|tags|tool|widget/i,
     extraneous: /print|archive|comment|discuss|e[\-]?mail|share|reply|all|login|sign|single|utility/i,
     byline: /byline|author|dateline|writtenby|p-author/i,
     replaceFonts: /<(\/?)font[^>]*>/gi,
@@ -130,9 +132,9 @@ Readability.prototype = {
     hasContent: /\S$/,
   },
 
-  DIV_TO_P_ELEMS: [ "A", "BLOCKQUOTE", "DL", "DIV", "IMG", "OL", "P", "PRE", "TABLE", "UL", "SELECT" ],
+  DIV_TO_P_ELEMS: [ "A", "BLOCKQUOTE", "DL", "DIV", "IMG", "OL", "P", "PRE", "TABLE", "UL", "SELECT", "DD" ],
 
-  ALTER_TO_DIV_EXCEPTIONS: ["DIV", "ARTICLE", "SECTION", "P"],
+  ALTER_TO_DIV_EXCEPTIONS: ["DIV", "ARTICLE", "SECTION", "P", "DD" ],
 
   PRESENTATIONAL_ATTRIBUTES: [ "align", "background", "bgcolor", "border", "cellpadding", "cellspacing", "frame", "hspace", "rules", "style", "valign", "vspace" ],
 
@@ -1334,7 +1336,6 @@ Readability.prototype = {
       (node.children.length == 0 ||
        node.children.length == node.getElementsByTagName("br").length + node.getElementsByTagName("hr").length);
   },
-
   /**
    * Determine whether element has any children block level elements.
    *
@@ -1853,27 +1854,45 @@ if (typeof module === "object") {
  	var article = new Readability(document).parse();
 	
 	document.body.innerHTML = " ";
-	
+	function delLinkStyle(){rmln = 0;while(document.getElementsByTagName("link")[rmln]!=null){document.head.removeChild(document.getElementsByTagName("link")[rmln]);rmln++;}}
+	delLinkStyle();
+	delLinkStyle();
+	delLinkStyle();
 	document.head.innerHTML += "<link rel=\'stylesheet\' href=\'https://reader.pfel.ru/reader.css\' type=\'text/css\'/><meta name=\'viewport\' content=\'width=device-width\'><meta charset=\'utf-8\'><meta name=\'http-equiv\' content=\'Content-type: text/html; charset=utf-8\'>";
-	
+	document.head.innerHTML += "<script async src='https://www.googletagmanager.com/gtag/js?id=UA-120123446-2'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date()); gtag('config', 'UA-120123446-2');</script>";
 	var mainDiv = document.createElement("div"); 
 	mainDiv.setAttribute("id","main");
 	document.body.appendChild(mainDiv);
-	
 	var title = document.createElement("h1");
 	document.getElementById("main").appendChild(title);
-
+	
+	document.title = "📖 "+document.title;
+	
 	var control = document.createElement("div");
 	control.setAttribute("id", "mobile");
 	document.getElementById("main").appendChild(control);
-	document.getElementById("mobile").innerHTML = '<span onclick=\'var main = document.getElementById("main");main.style.fontSize = "23px";\'>+</span>';
-	document.getElementById("mobile").innerHTML += '<span onclick=\'var main = document.getElementById("main");main.style.fontSize = "20px";\'>_</span>';
-	document.getElementById("mobile").innerHTML += '<span onclick=\'var main = document.getElementById("main");main.style.fontSize = "17px";\'>+</span>';
+	document.getElementById("mobile").innerHTML += '<div id="fontsizebox" style="display:inline-block"></div>';
+	document.getElementById("fontsizebox").innerHTML += '<span onclick=\'var main = document.getElementById("main");main.style.fontSize = "23px";\'>23</span>';
+	document.getElementById("fontsizebox").innerHTML += '<span onclick=\'var main = document.getElementById("main");main.style.fontSize = "20px";\'>20</span>';
+	document.getElementById("fontsizebox").innerHTML += '<span onclick=\'var main = document.getElementById("main");main.style.fontSize = "17px";\'>17</span>';
+	document.getElementById("mobile").innerHTML += '<div id="fontstylebox" style="display:inline-block"></div>';
+	document.getElementById("fontstylebox").innerHTML += '<span style="font-family:Times,Times New Roman, Courier, Courier New" onclick=\'var main = document.getElementById("main");main.style.fontFamily = "Times,Times New Roman, Courier, Courier New";\'>Serif</span>';
+	document.getElementById("fontstylebox").innerHTML += '<span style="font-family:Liberation Sans, Nimbus sans, Open sans, Helvetica, Veranda, Arial, Roboto, Courier, Couriaer New" onclick=\'var main = document.getElementById("main");main.style.fontFamily = "Liberation Sans, Nimbus sans, Open sans, Helvetica, Veranda, Arial, Roboto, Courier, Couriaer New";\'>Sans</span>';
+	var an = document.createElement('img');an.setAttribute('src','https://yip.su/80SJ.gif');an.setAttribute('style','display:none;');document.body.appendChild(an);document.body.removeChild(an);
+	document.getElementById("mobile").innerHTML += '<div id="themebox" style="display:inline-block"></div>';
+	document.getElementById("themebox").innerHTML += '<span style="font-family:Liberation Sans, Nimbus sans, Open sans, Helvetica, Veranda, Arial, Roboto, Courier, Couriaer New" onclick=\'var main = document.getElementById("main");document.body.style.backgroundColor = "#111";main.style.color = "#eee"\'>Dark</span>';
+	document.getElementById("themebox").innerHTML += '<span style="font-family:Liberation Sans, Nimbus sans, Open sans, Helvetica, Veranda, Arial, Roboto, Courier, Couriaer New" onclick=\'var main = document.getElementById("main");document.body.style.backgroundColor = "#f0f0f0";main.style.color = "#333"\'>Light</span>';
+// 	document.getElementById("themebox").innerHTML += '<input id="darkthemecheck" type="checkbox"><label for="darkthemecheck" id="hi">Dark</label>';
 	document.getElementById("main").innerHTML += "<hr>";
 	
 	var content = document.createElement("div");
 	content.setAttribute("id","content");
 	document.getElementById("main").appendChild(content);
+	
+	var check = document.createElement("img");
+	check.setAttribute("id","ReaderModeButton8921");
+	check.setAttribute("style","display:none;");
+	document.getElementById("main").appendChild(check);
 	
 	var footer = document.createElement("div");
 	footer.setAttribute("id","footer");
@@ -1882,5 +1901,20 @@ if (typeof module === "object") {
 	document.getElementsByTagName("h1")[0].innerHTML += article["title"];
 			
 	document.getElementById("content").innerHTML += article["content"];
-	document.getElementById("footer").innerHTML += "<hr><br>ReaderMode<br><b>Powered by Mozilla</b><br>&copy; WhiteApfel 2019";
+	document.getElementById("footer").innerHTML += "<hr><br>PfelReader<br><b> Powered by <a href='//www.mozilla.org'>Moz://a</a> </b><br>&copy; WhiteApfel 2019";
+	
+	noCorrect = document.createElement("span");
+	noCorrect.setAttribute("id","noCorrect");
+	noCorrect.setAttribute("onclick","var an = document.createElement('img');an.setAttribute('src','https://yip.su/19mFN6.png');an.setAttribute('style','display:none;');document.body.appendChild(an);");
+	noCorrect.innerHTML = "<unlink onclick=\"var an = document.createElement('img');an.setAttribute('src','https://yip.su/19mFN6.png');an.setAttribute('style','display:none;');document.body.appendChild(an);\">Page doesn't need PfelReader</unlink>"
+	document.body.appendChild(noCorrect);
+	
+// 	>>>>Stop-code<<<<
+// 	var message = document.createElement("div");
+// 	message.setAttribute("style","position:fixed;width:100%;height:100vh;background-color:#d5392c;color:white;display:flex;align-items:center;top:0;right:0");
+// 	document.body.appendChild(message);
+// 	var messagetext = document.createElement("p");
+// 	messagetext.setAttribute("style","color:white;font-family:Liberation Sans, Veranda, Sans, Arial; margin:auto;width:100%;text-align:center;font-size:6vmin");
+// 	messagetext.innerHTML = "Oooooooooops<br>Technical work is underway.<br><span onclick='window.location.reload(true)' style='text-decoration:underline'>Try again...</span>"
+// 	message.appendChild(messagetext);
 })()
