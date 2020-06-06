@@ -9,7 +9,7 @@ if(buttoncheck)
 		var readerbutton = document.createElement("div");
 		readerbutton.setAttribute("id", "ReaderModeButton8921");
 		readerbutton.setAttribute("style","font-size:6vmin;position:absolute;top:17vmin;right:0;border-radius:7vmin 0 0 7vmin;padding:1.5vmin 3vmin;background-color:#000;opacity:0.8;z-index:99999999;color:#FFF");
-		readerbutton.setAttribute("onclick","var sc = document.createElement('script');sc.src='https://reader.pfel.ru/reader.A8G4A03efC.js?ver=218';document.body.appendChild(sc);");
+		readerbutton.setAttribute("onclick","var sc = document.createElement('script');sc.src='https://reader.pfel.ru/reader.js?ver=218';document.body.appendChild(sc);");
 		readerbutton.innerHTML = "&#128214;";
 		document.body.appendChild(readerbutton);
 		noCorrect = document.createElement("span");
